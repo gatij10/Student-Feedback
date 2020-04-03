@@ -1,0 +1,81 @@
+<br /><br /><br />
+
+<div *ngIf="!busy">
+  <div class="justify-content-center">
+    <div class=" container">
+      <div class="row ">
+        <div class="col-md-8">
+          <article>
+            <h2><span>Select The teacher for feedback</span></h2>
+            <br />
+            <br />
+            <br />
+            <select (change)="selectChangeHandler($event)">
+              <option>--SELECT ROLE--</option>
+              <option value="0">STUDENT</option>
+              <option value="1">TEACHER</option>
+            </select>
+          </article>
+        </div>
+
+        <div class="col-lg-4 "></div>
+        <div class="col-12 col-lg-4 ">
+          <div class="card login-box " *ngIf="selected">
+            <h1>SignUp Here</h1>
+            <form #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)">
+              <div>
+                <label for="firstName">Teacher ID</label>
+                <input
+                  ngModel
+                  #firstname="ngModel"
+                  name="firstName"
+                  type="text"
+                  class="form-control"
+                  id="firstName"
+                />
+              </div>
+
+              <div>
+                <label for="email">Email</label>
+                <input
+                  ngModel
+                  #email="ngModel"
+                  name="email"
+                  type="email"
+                  class="form-control"
+                />
+              </div>
+
+              <div>
+                <label for="password">Password</label>
+                <input
+                  ngModel
+                  #password="ngModel"
+                  name="password"
+                  type="password"
+                  class="form-control"
+                />
+              </div>
+              <br />
+
+              <br />
+              <div><input type="submit" name="submit" value="SignUp" /></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="busy" class="processing">
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <div class="container">
+    <p>Processing request, please stand by, you will be redirected soon...</p>
+    <div class="loader">Loading...</div>
+  </div>
+</div>

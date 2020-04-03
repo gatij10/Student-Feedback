@@ -1,0 +1,38 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+asdasdasd
+<div class="container">
+
+    <div id="heading">
+        <div class="container hdAndText" style="text-align: center;">
+            <b>
+               
+            </b>
+            <div class="yellow_line1"></div>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+
+
+
+        <ng-container *ngFor="let upcoming of upcomings">
+            <div class="col-lg-3">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{upcoming.id}}</h5><br>
+                        <h6 class="card-subtitle mb-2 text-muted">{{upcoming.content}} </h6><br>
+                        <p class="card-text"> {{upcoming.score}}</p>
+                        <br>
+                    </div>
+                </div>
+
+            </div>
+
+        </ng-container>
+    </div>
+</div>

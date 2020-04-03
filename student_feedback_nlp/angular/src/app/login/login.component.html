@@ -1,0 +1,67 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<div *ngIf="!busy">
+  <div class="justify-content-center">
+    <div class="container">
+
+      <div class=" row ">
+        <div class="col-lg-4 "></div>
+        <div class="col-12 col-lg-4 ">
+          <div class="card login-box">
+            <img src="../../assets/avatar.png" class="avatar">
+            <h1>Login Here</h1>
+            <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+
+              <div>
+                <label for="email">Email</label>
+                <input ngModel #email="ngModel" name="email" type="email" class="form-control">
+              </div>
+
+              <div>
+                <label for="password">Password</label>
+                <input ngModel #password="ngModel" name="password" type="password" class="form-control">
+              </div>
+              <br>
+              <input type="submit" name="submit" value="Login">
+              <br>
+              
+
+              
+
+            </form>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<br><br><br><br>
+
+<div *ngIf="busy" class="processing">
+  <br>
+  <br>
+  
+ 
+  <div class="container">
+   
+
+    <img src="../../assets/Double Ring-1s-200px.gif" alt="">
+    <br>
+    <br>
+    <br>
+    <p>Processing request, please stand by, you will be redirected soon...</p>
+    <div class="loader">Loading...</div>
+    
+      
+</div>
+  </div>

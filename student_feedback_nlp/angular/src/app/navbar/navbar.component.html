@@ -1,0 +1,133 @@
+<div
+  *ngIf="authService.afAuth.authState | async; then authenticatd; else guet"
+></div>
+
+<ng-template #guet>
+  <section>
+    <nav
+      class="navbar navbar-expand-lg navbar-light  fixed-top top-nav-collapse fill"
+      style="z-index: 1000;"
+    >
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item ">
+              <a class="nav-link" routerLink="/home" routerLinkActive="active"
+                ><span
+                  id="text"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  >Home</span
+                ></a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/login" routerLinkActive="active"
+                ><span
+                  id="text"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  >Login</span
+                ></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+</ng-template>
+
+<ng-template #authenticatd>
+  <section>
+    <nav
+      class="navbar navbar-expand-lg navbar-light  fixed-top top-nav-collapse fill"
+      style="z-index: 1000;"
+    >
+      <div class="container">
+        <button
+          #navbarToggler
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item ">
+              <a class="nav-link" routerLink="/home" routerLinkActive="active"
+                ><span
+                  id="text"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  >Home</span
+                ></a
+              >
+            </li>
+
+            <li class="nav-item " *ngIf="currentUser.nav == 1">
+              <a
+                class="nav-link"
+                [routerLink]="['/teacher', currentUser.id]"
+                routerLinkActive="active"
+                ><span
+                  id="text"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  >View Score</span
+                ></a
+              >
+            </li>
+
+            <li class="nav-item " *ngIf="currentUser.nav == 0">
+              <a
+                class="nav-link"
+                routerLink="/feedback"
+                routerLinkActive="active"
+                ><span
+                  id="text"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  >Give Feedback</span
+                ></a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                (click)="authService.SignOut()"
+                routerLinkActive="active"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="Logout"
+                ><i
+                  class="fa fa-sign-out"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                ></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+</ng-template>

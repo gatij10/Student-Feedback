@@ -1,0 +1,75 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<section>
+  <div class="justify-content-center"> 
+<div class="container">
+  
+<div *ngIf="!busy">
+  <div class="row">
+ 
+  <div class="col-md-4"></div>
+    <div class="col-md-8">
+      <article>
+     
+      <h2><span>Select The teacher for feedback</span></h2>
+      <br>
+      <br>
+      <br>
+      <select (change)="selectChangeHandler($event)">
+          <option >--SELECT TEACHER--</option>
+          <option value="1">Teacher 1</option>
+          <option value="2">Teacher 2</option>
+          <option value="3">Teacher 3</option>
+          <option value="4">Teacher 4</option>
+  
+      </select>
+  </article>
+</div>
+
+  </div>
+    
+</div>
+
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-8">
+    <div *ngIf="selected"> 
+      <br>
+      <br>
+      <br>
+    <form *ngIf="!busy" (ngSubmit)="addFeedback(postForm.value)" [formGroup]="postForm">
+         
+    <h3><span>Give Review For Teacher </span><b>{{selected}}</b></h3>
+        <br>
+        <br>
+        <br>
+      <div class="formcontrol">
+        <label for="content">Content</label>
+        <div >
+        <textarea formControlName="content" style="width: 350px; height: 300px;"></textarea>
+      </div></div>
+    <br><br>
+    <input type="submit" [disabled]="!postForm.valid" value="Submit" class="rand">
+      </form>
+    
+      <div *ngIf="busy" class="processing">
+        
+    <img src="../../assets/Double Ring-1s-200px.gif" alt="">
+    <br>
+    <br>
+    <br>
+    <p>Processing request, please stand by, you will be redirected soon...</p>
+    <div class="loader">Loading...</div>
+      </div>
+    
+    </div>
+  </div>
+  
+</div>
+    
+  </div>
+  </div>
+    </section>
